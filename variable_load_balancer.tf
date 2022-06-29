@@ -28,6 +28,3 @@ variable "frontend_config" {
   
 }
 
-variable "backend" {
-    default = "lb_backend"
-}
