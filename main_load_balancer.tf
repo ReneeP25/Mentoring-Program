@@ -34,3 +34,9 @@ resource "azurerm_lb" "load_balancer"{
     public_ip_address_id = azurerm_public_ip.public_ip_address.id
   }
 }
+
+resource "azurerm_lb_backend_address_pool" "backend_address" {
+  name = var.backend
+  loadbalancer_id = azurerm_lb.load_balancer.id
+  
+}

@@ -27,3 +27,7 @@ variable "frontend_config" {
     default = "frontend_ip_address"
   
 }
+
+variable "backend" {
+    default = "lb_backend"
+}
