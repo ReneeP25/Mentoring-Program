@@ -21,13 +21,16 @@ resource "azurerm_traffic_manager_profile" "traffic_manager" {
     }
 
     monitor_config {
-      protocol = "HTTP"
-      port = 443
-      path = "/"
+      protocol = "TCP"
+      port = 80
       interval_in_seconds = 30
-      timeout_in_seconds = 10
       tolerated_number_of_failures = 2
+      timeout_in_seconds = 10
+       expected_status_code_ranges = 200 - 299
     }
+
+    traffic_view_enabled = true
+    
 }
 
 resource "azurerm_traffic_manager_azure_endpoint" "traffic_manager_endpoint" {
@@ -35,4 +38,5 @@ resource "azurerm_traffic_manager_azure_endpoint" "traffic_manager_endpoint" {
   profile_id = azurerm_traffic_manager_profile.traffic_manager.id
   weight = 200
   target_resource_id = azurerm_public_ip.public_ip_address.id  
+  priority = 1
 }

@@ -11,7 +11,7 @@ variable "publicip" {
 }
 
 variable "allocation_method" {
-    default = "Static"
+    default = "static"
 }
 
 variable "traffic_mng" {
