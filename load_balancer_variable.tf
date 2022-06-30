@@ -15,8 +15,7 @@ variable "allocation_method" {
 }
 
 variable "lb" {
-    default = "loadbalancer1"
-  
+    default = "loadbalancer1"  
 }
 
 variable "sku" {
@@ -24,7 +23,17 @@ variable "sku" {
 }
 
 variable "frontend_config" {
-    default = "frontend_ip_address"
-  
+    default = "frontend_ip_address"  
 }
 
+variable "backendpoolname" {
+    default = "lb_backend_pool"  
+}
+
+variable "nat_rule_name" {
+    default = "lb_nat_rule" 
+}
+
+variable "probename" {
+    default = "lb_probe"
+}

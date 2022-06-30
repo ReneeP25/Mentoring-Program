@@ -22,3 +22,25 @@ resource "azurerm_lb" "load_balancer"{
   }
 }
 
+resource "azurerm_lb_backend_address_pool" "backend_pool" {
+  name = var.backendpoolname
+  loadbalancer_id = azurerm_lb.load_balancer.id
+}
+
+resource "azurerm_lb_nat_rule" "nat_rule" {
+  name = var.nat_rule_name
+  resource_group_name = azurerm_resource_group.resource_group.name
+  loadbalancer_id = azurerm_lb.load_balancer.id
+  protocol = "TCP"
+  frontend_port = 80
+  backend_port = 80
+  frontend_ip_configuration_name = azurerm_lb.load_balancer.frontend_ip_configuration.name
+  idle_timeout_in_minutes = 4
+}  
+
+resource "azurerm_lb_probe" "healthprobe" {
+  name = var.probename
+  loadbalancer_id = azurerm_lb.load_balancer.id
+  protocol = "TCP"
+  port = 80  
+}
