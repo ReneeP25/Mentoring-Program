@@ -1,4 +1,4 @@
-ariable "rgname" {
+variable "rgname" {
   default = "resource_group1"
 }
 
