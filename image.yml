@@ -1,0 +1,22 @@
+name: containergrp1
+apiVersion: 2022-07-01
+location: eastus
+properties:
+   containers:
+   - name: aci-1
+     properties:
+       image: 
+       resources:
+        requests:
+          cpu: 1
+          memoryInGb: 1.5
+       ports: 
+       - port: 80
+       - port: 8080
+    osType: linux
+    ipAddress:
+      type: public
+      ports: 
+      - protocol: tcp
+        port: 80
+  
