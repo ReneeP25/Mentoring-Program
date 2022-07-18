@@ -39,3 +39,5 @@ resource "azurerm_monitor_diagnostic_setting" "diagnostic-setting" {
     }
   }
 }
+
+
