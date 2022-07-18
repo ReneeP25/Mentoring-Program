@@ -25,3 +25,5 @@ resource "azurerm_log_analytics_datasource_windows_event" "windows" {
   event_log_name = "system"  
   event_types = [ "error" ]
 }
+
+
