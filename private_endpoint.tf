@@ -92,3 +92,5 @@ resource "azurerm_private_endpoint" "pvt-ep" {
         request_message = "pvt-ep is attempting to connect to remote resource"
     }
 }
+
+
